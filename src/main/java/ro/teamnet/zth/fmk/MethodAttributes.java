@@ -1,5 +1,7 @@
 package ro.teamnet.zth.fmk;
 
+import java.util.List;
+
 /**
  * MethodAttributes.java
  */
@@ -8,6 +10,15 @@ public class MethodAttributes {
     String controllerClass;
     String methodName;
     String methodType;
+    List<ParameterAttributes>  methodParams;
+
+    public List<ParameterAttributes> getMethodParams() {
+        return methodParams;
+    }
+
+    public void setMethodParams(List<ParameterAttributes> methodParams) {
+        this.methodParams = methodParams;
+    }
 
     public String getControllerClass() {
         return controllerClass;
@@ -35,27 +46,29 @@ public class MethodAttributes {
 
     @Override
     public boolean equals(Object o) {
-        if(this == o) {
+        if (this == o) {
             return true;
         }
-        if(o == null || getClass() != o.getClass()) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
         MethodAttributes that = (MethodAttributes) o;
 
-        if(controllerClass != null ? !controllerClass.equals(that.controllerClass) : that.controllerClass != null) {
+        if (controllerClass != null ? !controllerClass.equals(that.controllerClass) : that.controllerClass != null) {
             return false;
         }
-        if(methodType != null ? !methodName.equals(that.methodName) : that.methodName != null) {
+        if (methodType != null ? !methodName.equals(that.methodName) : that.methodName != null) {
             return false;
         }
-        if(methodType != null ? !methodType.equals(that.methodType) : that.methodType != null) {
+        if (methodType != null ? !methodType.equals(that.methodType) : that.methodType != null) {
             return false;
         }
 
         return true;
     }
+
+
 
     @Override
     public int hashCode() {
